@@ -1,24 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VvN-ZW-BeV">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="BYZ-38-t0r" customClass="VT_MapViewController" customModule="VirtualTourist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="toU-Kf-dQy">
+                                <rect key="frame" x="0.0" y="553" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.85043728351593018" green="0.21816034615039825" blue="0.15920260548591614" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="9qU-h6-H0K"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Tap Pins to Delete">
+                                    <color key="titleColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapDeletePinsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rS0-rx-7Ys"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wQG-uc-ugZ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="553"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="wQG-uc-ugZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1cT-49-Vpz"/>
+                            <constraint firstItem="toU-Kf-dQy" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="25m-eN-2kR"/>
+                            <constraint firstItem="wQG-uc-ugZ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Mm5-3Y-AXq"/>
+                            <constraint firstItem="toU-Kf-dQy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="N3F-PR-Waf"/>
+                            <constraint firstItem="wQG-uc-ugZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Uom-yC-VYY"/>
+                            <constraint firstItem="toU-Kf-dQy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hKZ-jS-e4X"/>
+                            <constraint firstItem="toU-Kf-dQy" firstAttribute="top" secondItem="wQG-uc-ugZ" secondAttribute="bottom" id="x0D-3M-YjZ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="yFr-KM-U6N">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="f1o-r5-rjG">
+                            <connections>
+                                <action selector="didTapEditButton:" destination="BYZ-38-t0r" id="R6m-dy-oB4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="deletePinsButton" destination="toU-Kf-dQy" id="aSd-0P-DPG"/>
+                        <outlet property="deletePinsButtonHeightConstraint" destination="9qU-h6-H0K" id="za6-cc-z0e"/>
+                        <outlet property="editBarButton" destination="f1o-r5-rjG" id="5Ca-2b-mMv"/>
+                        <outlet property="mapView" destination="wQG-uc-ugZ" id="wtT-m3-i9U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="476" y="132.68365817091455"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="81w-OR-dVj">
+            <objects>
+                <navigationController storyboardIdentifier="MapNavController" automaticallyAdjustsScrollViewInsets="NO" id="VvN-ZW-BeV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="fYI-wE-5d2">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="5uw-Qm-PwG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cV5-oc-n48" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-292" y="133"/>
         </scene>
     </scenes>
 </document>
