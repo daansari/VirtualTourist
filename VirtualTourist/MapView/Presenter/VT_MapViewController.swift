@@ -16,14 +16,16 @@ class VT_MapViewController: UIViewController {
     @IBOutlet weak var deletePinsButtonHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var editBarButton: UIBarButtonItem!
     
-    var pins = [String]()
-    var pinsToDelete = [String]()
+    var pins:[Pin] = []
+    var pinsToDelete:[MKAnnotation]?
+    var isEditMode: Bool = false
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setupUI()
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,13 +42,6 @@ class VT_MapViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
-    
-    @IBAction func didTapEditButton(_ sender: Any) {
-    }
-    
-    
-    @IBAction func didTapDeletePinsButton(_ sender: Any) {
-    }
+    */        
     
 }

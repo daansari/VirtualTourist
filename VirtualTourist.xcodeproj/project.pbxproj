@@ -21,6 +21,8 @@
 		D0697E241F94ED86004B6250 /* VT_MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0697E231F94ED86004B6250 /* VT_MapViewController.swift */; };
 		D0697E261F94EDAC004B6250 /* VT_CoreDataCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0697E251F94EDAC004B6250 /* VT_CoreDataCollectionViewController.swift */; };
 		D0697E281F94EDF0004B6250 /* VT_PinDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0697E271F94EDF0004B6250 /* VT_PinDetailViewController.swift */; };
+		D0A38FD71F94FB1800410377 /* SetupUIForMapViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A38FD61F94FB1800410377 /* SetupUIForMapViewControllerExtension.swift */; };
+		D0A38FD91F94FB2000410377 /* DataManagerForMapViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A38FD81F94FB2000410377 /* DataManagerForMapViewControllerExtension.swift */; };
 		D0D21B1C1F94F0CB0025D5D3 /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D21B181F94F0CB0025D5D3 /* Photo+CoreDataClass.swift */; };
 		D0D21B1D1F94F0CB0025D5D3 /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D21B191F94F0CB0025D5D3 /* Photo+CoreDataProperties.swift */; };
 		D0D21B1E1F94F0CB0025D5D3 /* Pin+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D21B1A1F94F0CB0025D5D3 /* Pin+CoreDataClass.swift */; };
@@ -76,6 +78,8 @@
 		D0697E231F94ED86004B6250 /* VT_MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VT_MapViewController.swift; sourceTree = "<group>"; };
 		D0697E251F94EDAC004B6250 /* VT_CoreDataCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VT_CoreDataCollectionViewController.swift; sourceTree = "<group>"; };
 		D0697E271F94EDF0004B6250 /* VT_PinDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VT_PinDetailViewController.swift; sourceTree = "<group>"; };
+		D0A38FD61F94FB1800410377 /* SetupUIForMapViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupUIForMapViewControllerExtension.swift; sourceTree = "<group>"; };
+		D0A38FD81F94FB2000410377 /* DataManagerForMapViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerForMapViewControllerExtension.swift; sourceTree = "<group>"; };
 		D0D21B181F94F0CB0025D5D3 /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D0D21B191F94F0CB0025D5D3 /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D0D21B1A1F94F0CB0025D5D3 /* Pin+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pin+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -236,6 +240,8 @@
 		D0697E1E1F94ED32004B6250 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				D0A38FD61F94FB1800410377 /* SetupUIForMapViewControllerExtension.swift */,
+				D0A38FD81F94FB2000410377 /* DataManagerForMapViewControllerExtension.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -590,8 +596,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0697E131F94E839004B6250 /* CoreDataStack.swift in Sources */,
+				D0A38FD91F94FB2000410377 /* DataManagerForMapViewControllerExtension.swift in Sources */,
 				D0D21B1F1F94F0CB0025D5D3 /* Pin+CoreDataProperties.swift in Sources */,
 				D0697DE71F94E81E004B6250 /* ViewController.swift in Sources */,
+				D0A38FD71F94FB1800410377 /* SetupUIForMapViewControllerExtension.swift in Sources */,
 				D0D21B1E1F94F0CB0025D5D3 /* Pin+CoreDataClass.swift in Sources */,
 				D0697E281F94EDF0004B6250 /* VT_PinDetailViewController.swift in Sources */,
 				D0697DE51F94E81E004B6250 /* AppDelegate.swift in Sources */,
