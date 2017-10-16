@@ -15,6 +15,7 @@ extension VT_MapViewController {
     func setupUI() {
         showHideDeletePinButton(show: false)
         setupMapViewUI()
+        setupExistingMapPins()
         setupLongTapGestureRecognizer()
     }
     
@@ -31,13 +32,27 @@ extension VT_MapViewController {
     }
     
     func setupMapViewUI() {
-        pins = []
+//        pins = []
         pinsToDelete = []
         CustomLocationManager.sharedInstance.checkLocationAuthorizationStatusWith(mapView: mapView) { (success, error) in
             if success == true {
             }
             else {
                TSMessage.showNotification(in: self, title: "Location Services Error", subtitle: error, type: .error)
+            }
+        }
+    }
+    
+    func setupExistingMapPins() {
+        let result = getExistingPins()
+        
+        if let objects = result {
+            for object in objects {
+                let pin = object as! Pin                
+                let coordinate = CLLocationCoordinate2DMake(pin.latitude, pin.longitude)
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = coordinate
+                mapView.addAnnotation(annotation)
             }
         }
     }

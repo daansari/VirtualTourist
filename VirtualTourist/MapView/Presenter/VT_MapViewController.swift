@@ -16,7 +16,7 @@ class VT_MapViewController: UIViewController {
     @IBOutlet weak var deletePinsButtonHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var editBarButton: UIBarButtonItem!
     
-    var pins:[Pin] = []
+//    var pins:[Pin] = []
     var pinsToDelete:[MKAnnotation]?
     var isEditMode: Bool = false
     

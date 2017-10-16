@@ -11,6 +11,22 @@ import MapKit
 import CoreData
 
 extension VT_MapViewController {
+    func getExistingPins() -> [NSFetchRequestResult]? {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Pin")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "latitude", ascending: true)]
+        
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.sharedInstance.context, sectionNameKeyPath: nil, cacheName: nil)
+        
+        do {
+            try fetchedResultsController.performFetch()
+            return fetchedResultsController.fetchedObjects
+        }
+        catch {
+            print("fc error")
+            return nil
+        }
+    }
+    
     func savePin(annotation: MKAnnotation) {
         let pin = Pin(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude, context: CoreDataStack.sharedInstance.context)
         CoreDataStack.sharedInstance.save()
@@ -34,11 +50,11 @@ extension VT_MapViewController {
                 }
                 
                 if latitudes.count > 0 && longitudes.count > 0 {
-                    let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "Pin")
+                    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Pin")
                     let predicate = NSPredicate(format: "latitude IN %@ AND longitude IN %@", latitudes, longitudes)
-                    fr.predicate = predicate
+                    fetchRequest.predicate = predicate
                     
-                    let request = NSBatchDeleteRequest(fetchRequest: fr)
+                    let request = NSBatchDeleteRequest(fetchRequest: fetchRequest)
                     
                     do {
                         try CoreDataStack.sharedInstance.context.execute(request)
