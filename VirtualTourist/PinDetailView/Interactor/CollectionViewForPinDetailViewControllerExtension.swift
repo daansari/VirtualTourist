@@ -61,6 +61,8 @@ extension VT_PinDetailViewController: UICollectionViewDelegate, UICollectionView
         let photo = photos[indexPath.row]
                 
         if photo.image == nil {
+            cell.flickrImageView.backgroundColor = UIColor.flatGray
+            cell.flickrImageView.image = nil
             guard let imageUrlString = photo.url else {
                 print("Cannot find keys - \(Constants.FlickrResponseKeys.MediumURL) in \(photo)")
                 return cell

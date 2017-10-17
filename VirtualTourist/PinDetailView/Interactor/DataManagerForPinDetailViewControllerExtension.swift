@@ -34,13 +34,19 @@ extension VT_PinDetailViewController {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Photo")
         let predicate = NSPredicate(format: "pin = %@", argumentArray: [pin])
         fetchRequest.predicate = predicate
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "url", ascending: true)]
         
-        let request = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.sharedInstance.context, sectionNameKeyPath: nil, cacheName: nil)
         
         do {
-            try CoreDataStack.sharedInstance.context.execute(request)
-        } catch {
-            print("error")
+            try fetchedResultsController.performFetch()
+            for object in fetchedResultsController.fetchedObjects! {
+                let photo = object as! Photo
+                deleteExistingPhoto(photo: photo)
+            }
+        }
+        catch {
+            print("fc error")
         }
     }
     
@@ -48,6 +54,7 @@ extension VT_PinDetailViewController {
         for photo in selectedPhotos {
             deleteExistingPhoto(photo: photo)
         }
+        selectedPhotos = []
     }
     
     func deleteExistingPhoto(photo: Photo) {
@@ -79,6 +86,7 @@ extension VT_PinDetailViewController {
     
     func getFreshPhotos() {
         deleteExistingPhotosFor(pin: selectedPin!)
+        self.collectionView.reloadData()
         photos = []
         
         let randomPage = Int(arc4random_uniform(UInt32(FlickrManager.sharedInstance.pages)))
@@ -96,8 +104,8 @@ extension VT_PinDetailViewController {
         ]
                 
         FlickrManager.sharedInstance.getImagesFromFlickrBySearch(pin: selectedPin!, methodParameters, with: randomPage) { (success, error, photosArray) in
-            self.photos = photosArray
             DispatchQueue.main.async {
+                self.photos = photosArray
                 self.collectionView.reloadData()
             }
         }

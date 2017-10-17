@@ -18,7 +18,9 @@ class FlickrManager {
     var photosFromFlickr: [PhotoModel] = []
     var photos: [Photo] = []
     
-    func getImagesFromFlickrBySearch(pin: Pin, _ methodParameters: [String: AnyObject], with pageNumber: Int, onCompletion: @escaping FlickrManagerServiceResponseForPhotoFetch) {
+    func getImagesFromFlickrBySearch(pin: Pin, _ methodParameters: [String: AnyObject], with pageNumber: Int, onCompletion: @escaping FlickrManagerServiceResponseForPhotoFetch) {        
+        photosFromFlickr = []
+        photos = []
         
         if randomPage == pageNumber {
             randomPage = Int(arc4random_uniform(UInt32(self.pages)))
@@ -96,20 +98,11 @@ class FlickrManager {
                 print("\nphotosFromFlickr - \(self.photosFromFlickr)")
                 
                 for photo in self.photosFromFlickr {
-                    guard let imageUrlString = photo.urlM else {
-                        displayError(error: "Cannot find keys - \(Constants.FlickrResponseKeys.MediumURL) in \(photo)")
-                        return
-                    }
-                    
-                    let savedPhoto = Photo(photo: photo, context: CoreDataStack.sharedInstance.context)
-                    savedPhoto.pin = pin
-                    self.photos.append(savedPhoto)
-                    do {
-                        try CoreDataStack.sharedInstance.saveContext()
-                    }
-                    catch {
-                        print("error saving")
-                    }                                        
+//                    DispatchQueue.main.async {
+                        let savedPhoto = Photo(photo: photo, context: CoreDataStack.sharedInstance.context)
+                        savedPhoto.pin = pin
+                        self.photos.append(savedPhoto)
+//                    }
                 }
                 
                 
@@ -119,6 +112,12 @@ class FlickrManager {
                 return
             }
             
+            do {
+                try CoreDataStack.sharedInstance.saveContext()
+            }
+            catch {
+                print("error saving")
+            }
             onCompletion(true, nil, self.photos)
         }
         
