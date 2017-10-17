@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+import ChameleonFramework
+
 private let reuseIdentifier = "PinDetail"
 
 extension VT_PinDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -22,14 +24,52 @@ extension VT_PinDetailViewController: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return testArray.count
+        return photos.count
+    }
+    
+    func getDataFromUrl(url:String, completion: @escaping ((_ data: NSData?) -> Void)) {
+        URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
+            completion(NSData(data: data!))
+            }.resume()
+    }
+    
+    func downloadImage(url:String, photo: Photo, indexPath: IndexPath){
+        getDataFromUrl(url: url) { data in
+            DispatchQueue.main.async() {
+                if let image = UIImage(data: data! as Data){
+                    let cell = self.collectionView.cellForItem(at: indexPath) as! VT_PinDetailCollectionViewCell
+                    cell.flickrImageView.image = image
+                    photo.image = data
+                    do {
+                        try CoreDataStack.sharedInstance.saveContext()
+                    }
+                    catch {
+                        print("error saving")
+                    }
+
+                }
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! VT_PinDetailCollectionViewCell
         
         // Configure the cell
-        cell.backgroundColor = UIColor.red
+        cell.backgroundColor = UIColor.flatGray
+        
+        let photo = photos[indexPath.row]
+                
+        if photo.image == nil {
+            guard let imageUrlString = photo.url else {
+                print("Cannot find keys - \(Constants.FlickrResponseKeys.MediumURL) in \(photo)")
+                return cell
+            }
+            downloadImage(url: imageUrlString, photo: photo, indexPath: indexPath)
+        }
+        else {
+            cell.flickrImageView.image = UIImage(data: photo.image! as Data)
+        }
         
         return cell
     }
@@ -54,24 +94,26 @@ extension VT_PinDetailViewController: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! VT_PinDetailCollectionViewCell
         
-        let photo = testArray[indexPath.row]
+        let photo = photos[indexPath.row]
         
-        let result = selectedPhotos.first(where: { (testStr: String) -> Bool in
-            if testStr == photo {
-                return true
-            }
-            return false
-        })
-        
-        if result == nil {
+        if let index = selectedPhotos.index(of: photo) {
+            selectedPhotos.remove(at: index)
+            cell.alpha = 1
+        }
+        else {
             selectedPhotos.append(photo)
             cell.alpha = 0.5
         }
-        else {
-            let index = selectedPhotos.index(of: photo)
-            selectedPhotos.remove(at: index!)
-            cell.alpha = 1
-        }
+        
+//        if result == nil {
+//            selectedPhotos.append(photo)
+//            cell.alpha = 0.5
+//        }
+//        else {
+//            let index = selectedPhotos.index(of: photo)
+//            selectedPhotos.remove(at: index!)
+//            cell.alpha = 1
+//        }
         
 //        if cell.alpha == 0.5 {
 //            cell.alpha = 1

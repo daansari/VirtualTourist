@@ -1,9 +1,8 @@
 //
 //  Pin+CoreDataProperties.swift
-//  VirtualTourist
+//  
 //
-//  Created by Danish Ahmed Ansari on 10/16/17.
-//  Copyright © 2017 Deepturf. All rights reserved.
+//  Created by Danish Ahmed Ansari on 10/17/17.
 //
 //
 

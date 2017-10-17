@@ -13,8 +13,9 @@ private let reuseIdentifier = "PinDetail"
 
 extension VT_PinDetailViewController {
     func setupUI() {
-        setupCollectionView()
+//        setupCollectionView()
         setupMapView()
+        getPhotos()
     }
     
     func setupMapView() {
@@ -33,4 +34,5 @@ extension VT_PinDetailViewController {
         // Register cell classes
         self.collectionView!.register(VT_PinDetailCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
+    
 }

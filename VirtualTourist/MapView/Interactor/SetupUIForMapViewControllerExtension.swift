@@ -137,6 +137,7 @@ extension VT_MapViewController: MKMapViewDelegate {
             }
         }
         else {
+            mapView.deselectAnnotation(view.annotation, animated: true)
             // Open Pin Detail View
             let pin = getPinWith(annotation: view.annotation!)
             

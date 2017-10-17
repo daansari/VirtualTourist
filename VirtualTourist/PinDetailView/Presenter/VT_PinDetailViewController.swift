@@ -16,7 +16,9 @@ class VT_PinDetailViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var selectedPin: Pin?
     var testArray = ["One", "Two", "Three"]
-    var selectedPhotos: [String] = []
+    var selectedPhotos: [Photo] = []
+    var photos: [Photo] = []
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

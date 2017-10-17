@@ -53,7 +53,12 @@ extension VT_MapViewController {
     
     func savePin(annotation: MKAnnotation) {
         let pin = Pin(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude, context: CoreDataStack.sharedInstance.context)
-        CoreDataStack.sharedInstance.save()
+        do {
+            try CoreDataStack.sharedInstance.saveContext()
+        }
+        catch {
+            print("error saving")
+        }
         print("pin to save")
         print("pin.latitude - \(pin.latitude)")
         print("pin.longitude - \(pin.longitude)")

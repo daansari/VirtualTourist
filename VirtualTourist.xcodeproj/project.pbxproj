@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CE82C13E1FBE63874AE11B67 /* Pods_VirtualTourist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B56B2CD2F19D8998887A3D65 /* Pods_VirtualTourist.framework */; };
+		D01B9D161F9600E4004E7FD1 /* FlickrManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01B9D151F9600E4004E7FD1 /* FlickrManager.swift */; };
+		D01B9D181F96029C004E7FD1 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01B9D171F96029C004E7FD1 /* PhotoModel.swift */; };
 		D0697DE51F94E81E004B6250 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0697DE41F94E81E004B6250 /* AppDelegate.swift */; };
 		D0697DE71F94E81E004B6250 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0697DE61F94E81E004B6250 /* ViewController.swift */; };
 		D0697DEA1F94E81E004B6250 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0697DE81F94E81E004B6250 /* Main.storyboard */; };
@@ -26,12 +28,12 @@
 		D079D74E1F95F5960088DAB2 /* CollectionViewForPinDetailViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D079D74D1F95F5960088DAB2 /* CollectionViewForPinDetailViewControllerExtension.swift */; };
 		D0A38FD71F94FB1800410377 /* SetupUIForMapViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A38FD61F94FB1800410377 /* SetupUIForMapViewControllerExtension.swift */; };
 		D0A38FD91F94FB2000410377 /* DataManagerForMapViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A38FD81F94FB2000410377 /* DataManagerForMapViewControllerExtension.swift */; };
-		D0D21B1C1F94F0CB0025D5D3 /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D21B181F94F0CB0025D5D3 /* Photo+CoreDataClass.swift */; };
-		D0D21B1D1F94F0CB0025D5D3 /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D21B191F94F0CB0025D5D3 /* Photo+CoreDataProperties.swift */; };
-		D0D21B1E1F94F0CB0025D5D3 /* Pin+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D21B1A1F94F0CB0025D5D3 /* Pin+CoreDataClass.swift */; };
-		D0D21B1F1F94F0CB0025D5D3 /* Pin+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D21B1B1F94F0CB0025D5D3 /* Pin+CoreDataProperties.swift */; };
+		D0ACD2381F960A9F003CC86C /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ACD2341F960A9E003CC86C /* Photo+CoreDataClass.swift */; };
+		D0ACD2391F960A9F003CC86C /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ACD2351F960A9E003CC86C /* Photo+CoreDataProperties.swift */; };
+		D0ACD23A1F960A9F003CC86C /* Pin+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ACD2361F960A9F003CC86C /* Pin+CoreDataProperties.swift */; };
+		D0ACD23B1F960A9F003CC86C /* Pin+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ACD2371F960A9F003CC86C /* Pin+CoreDataClass.swift */; };
 		D0D21B221F94F3D40025D5D3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0D21B211F94F3D40025D5D3 /* MapKit.framework */; };
-		D0D21B241F94F4170025D5D3 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D21B231F94F4170025D5D3 /* LocationManager.swift */; };
+		D0D21B241F94F4170025D5D3 /* CustomLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D21B231F94F4170025D5D3 /* CustomLocationManager.swift */; };
 		E480AA052ED6060F0D69148E /* Pods_VirtualTouristTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97C793AFE14D3C70147382ED /* Pods_VirtualTouristTests.framework */; };
 		FF4ABEC26EE3939A892C2B7C /* Pods_VirtualTouristUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A0C0076A919822F53964C20 /* Pods_VirtualTouristUITests.framework */; };
 /* End PBXBuildFile section */
@@ -62,6 +64,8 @@
 		B2189836D8CF027F92A3BFFD /* Pods-VirtualTouristTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualTouristTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VirtualTouristTests/Pods-VirtualTouristTests.release.xcconfig"; sourceTree = "<group>"; };
 		B56B2CD2F19D8998887A3D65 /* Pods_VirtualTourist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VirtualTourist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC837326DB152E834AC471B6 /* Pods-VirtualTouristUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualTouristUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VirtualTouristUITests/Pods-VirtualTouristUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D01B9D151F9600E4004E7FD1 /* FlickrManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrManager.swift; sourceTree = "<group>"; };
+		D01B9D171F96029C004E7FD1 /* PhotoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		D0697DE11F94E81E004B6250 /* VirtualTourist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualTourist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0697DE41F94E81E004B6250 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0697DE61F94E81E004B6250 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,12 +90,12 @@
 		D079D74D1F95F5960088DAB2 /* CollectionViewForPinDetailViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewForPinDetailViewControllerExtension.swift; sourceTree = "<group>"; };
 		D0A38FD61F94FB1800410377 /* SetupUIForMapViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupUIForMapViewControllerExtension.swift; sourceTree = "<group>"; };
 		D0A38FD81F94FB2000410377 /* DataManagerForMapViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerForMapViewControllerExtension.swift; sourceTree = "<group>"; };
-		D0D21B181F94F0CB0025D5D3 /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataClass.swift"; sourceTree = "<group>"; };
-		D0D21B191F94F0CB0025D5D3 /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		D0D21B1A1F94F0CB0025D5D3 /* Pin+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pin+CoreDataClass.swift"; sourceTree = "<group>"; };
-		D0D21B1B1F94F0CB0025D5D3 /* Pin+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pin+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D0ACD2341F960A9E003CC86C /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Photo+CoreDataClass.swift"; path = "/Users/danishahmedansari/Projects/Study/Udacity/iOS Nanodegree projects/VirtualTourist/VirtualTourist/DataModel/Photo+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		D0ACD2351F960A9E003CC86C /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Photo+CoreDataProperties.swift"; path = "/Users/danishahmedansari/Projects/Study/Udacity/iOS Nanodegree projects/VirtualTourist/VirtualTourist/DataModel/Photo+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		D0ACD2361F960A9F003CC86C /* Pin+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Pin+CoreDataProperties.swift"; path = "/Users/danishahmedansari/Projects/Study/Udacity/iOS Nanodegree projects/VirtualTourist/VirtualTourist/DataModel/Pin+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		D0ACD2371F960A9F003CC86C /* Pin+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Pin+CoreDataClass.swift"; path = "/Users/danishahmedansari/Projects/Study/Udacity/iOS Nanodegree projects/VirtualTourist/VirtualTourist/DataModel/Pin+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		D0D21B211F94F3D40025D5D3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		D0D21B231F94F4170025D5D3 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		D0D21B231F94F4170025D5D3 /* CustomLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLocationManager.swift; sourceTree = "<group>"; };
 		F23D5493E6B421BDD2E8FB83 /* Pods-VirtualTouristUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualTouristUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VirtualTouristUITests/Pods-VirtualTouristUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -197,10 +201,11 @@
 		D0697E141F94E8DD004B6250 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				D0D21B1A1F94F0CB0025D5D3 /* Pin+CoreDataClass.swift */,
-				D0D21B1B1F94F0CB0025D5D3 /* Pin+CoreDataProperties.swift */,
-				D0D21B181F94F0CB0025D5D3 /* Photo+CoreDataClass.swift */,
-				D0D21B191F94F0CB0025D5D3 /* Photo+CoreDataProperties.swift */,
+				D0ACD2371F960A9F003CC86C /* Pin+CoreDataClass.swift */,
+				D0ACD2361F960A9F003CC86C /* Pin+CoreDataProperties.swift */,
+				D0ACD2341F960A9E003CC86C /* Photo+CoreDataClass.swift */,
+				D0ACD2351F960A9E003CC86C /* Photo+CoreDataProperties.swift */,
+				D01B9D171F96029C004E7FD1 /* PhotoModel.swift */,
 				D0697E151F94E8EC004B6250 /* Model.xcdatamodeld */,
 			);
 			path = DataModel;
@@ -211,7 +216,8 @@
 			children = (
 				D0697E191F94EBFD004B6250 /* VT_Constants.swift */,
 				D0697E121F94E839004B6250 /* CoreDataStack.swift */,
-				D0D21B231F94F4170025D5D3 /* LocationManager.swift */,
+				D0D21B231F94F4170025D5D3 /* CustomLocationManager.swift */,
+				D01B9D151F9600E4004E7FD1 /* FlickrManager.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -609,22 +615,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0697E131F94E839004B6250 /* CoreDataStack.swift in Sources */,
+				D0ACD23B1F960A9F003CC86C /* Pin+CoreDataClass.swift in Sources */,
 				D079D7481F95F3420088DAB2 /* DataManagerForPinDetailViewControllerExtension.swift in Sources */,
 				D0A38FD91F94FB2000410377 /* DataManagerForMapViewControllerExtension.swift in Sources */,
-				D0D21B1F1F94F0CB0025D5D3 /* Pin+CoreDataProperties.swift in Sources */,
+				D01B9D181F96029C004E7FD1 /* PhotoModel.swift in Sources */,
+				D01B9D161F9600E4004E7FD1 /* FlickrManager.swift in Sources */,
 				D0697DE71F94E81E004B6250 /* ViewController.swift in Sources */,
+				D0ACD2391F960A9F003CC86C /* Photo+CoreDataProperties.swift in Sources */,
 				D0A38FD71F94FB1800410377 /* SetupUIForMapViewControllerExtension.swift in Sources */,
 				D079D74E1F95F5960088DAB2 /* CollectionViewForPinDetailViewControllerExtension.swift in Sources */,
-				D0D21B1E1F94F0CB0025D5D3 /* Pin+CoreDataClass.swift in Sources */,
 				D079D7461F95F33B0088DAB2 /* SetupUIForPinDetailViewControllerExtension.swift in Sources */,
 				D0697E281F94EDF0004B6250 /* VT_PinDetailViewController.swift in Sources */,
+				D0ACD23A1F960A9F003CC86C /* Pin+CoreDataProperties.swift in Sources */,
 				D0697DE51F94E81E004B6250 /* AppDelegate.swift in Sources */,
 				D0697E1A1F94EBFD004B6250 /* VT_Constants.swift in Sources */,
-				D0D21B1C1F94F0CB0025D5D3 /* Photo+CoreDataClass.swift in Sources */,
 				D0697E171F94E8EC004B6250 /* Model.xcdatamodeld in Sources */,
-				D0D21B1D1F94F0CB0025D5D3 /* Photo+CoreDataProperties.swift in Sources */,
+				D0ACD2381F960A9F003CC86C /* Photo+CoreDataClass.swift in Sources */,
 				D0697E241F94ED86004B6250 /* VT_MapViewController.swift in Sources */,
-				D0D21B241F94F4170025D5D3 /* LocationManager.swift in Sources */,
+				D0D21B241F94F4170025D5D3 /* CustomLocationManager.swift in Sources */,
 				D079D74C1F95F4B00088DAB2 /* VT_PinDetailCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
