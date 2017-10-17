@@ -100,11 +100,7 @@ extension VT_PinDetailViewController {
         }
         
         let perPageValue = Int(Constants.FlickrParameterValues.PerPage)! / randomPage
-        
-//        if perPageValue > 50 {
-//            perPageValue = 50
-//        }
-//
+
         let methodParameters: [String: AnyObject] = [
             Constants.FlickrParameterKeys.Method: Constants.FlickrParameterValues.SearchMethod as AnyObject,
             Constants.FlickrParameterKeys.APIKey: Constants.FlickrParameterValues.APIKey as AnyObject,
