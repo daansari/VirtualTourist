@@ -2,18 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/danishahmedansari/Projects/Study/Udacity/iOS Nanodegree projects/VirtualTourist/VirtualTourist/DataModel/Pin+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/danishahmedansari/Projects/Study/Udacity/iOS Nanodegree projects/VirtualTourist/VirtualTourist/DataModel/Pin+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/danishahmedansari/Projects/Study/Udacity/iOS Nanodegree projects/VirtualTourist/VirtualTourist/DataModel/Photo+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/danishahmedansari/Projects/Study/Udacity/iOS Nanodegree projects/VirtualTourist/VirtualTourist/DataModel/Photo+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
       location = "group:VirtualTourist.xcodeproj">
    </FileRef>
    <FileRef

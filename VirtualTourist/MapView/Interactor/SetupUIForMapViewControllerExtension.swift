@@ -106,11 +106,6 @@ extension VT_MapViewController: UIGestureRecognizerDelegate {
         case .failed: break
             
         }
-        
-//        let pointLocation = CLLocationCoordinate2D(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
-//        let span = MKCoordinateSpan(latitudeDelta: 2, longitudeDelta: 2)
-//        let region = MKCoordinateRegion(center: pointLocation, span: span)
-//        self.mapView.setRegion(region, animated: true)
     }
 }
 
@@ -147,7 +142,6 @@ extension VT_MapViewController: MKMapViewDelegate {
             pinDetailViewController.selectedPin = pin
         
             self.navigationController?.pushViewController(pinDetailViewController, animated: true)
-//            self.present(navigationController, animated: true, completion: nil)
         }
     }
 }

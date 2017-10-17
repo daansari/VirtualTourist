@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+import FontAwesomeKit
 import ChameleonFramework
 
 private let reuseIdentifier = "PinDetail"
@@ -17,13 +18,11 @@ extension VT_PinDetailViewController: UICollectionViewDelegate, UICollectionView
     // MARK: UICollectionViewDataSource
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return photos.count
     }
     
@@ -37,16 +36,16 @@ extension VT_PinDetailViewController: UICollectionViewDelegate, UICollectionView
         getDataFromUrl(url: url) { data in
             DispatchQueue.main.async() {
                 if let image = UIImage(data: data! as Data){
-                    let cell = self.collectionView.cellForItem(at: indexPath) as! VT_PinDetailCollectionViewCell
-                    cell.flickrImageView.image = image
-                    photo.image = data
-                    do {
-                        try CoreDataStack.sharedInstance.saveContext()
+                    if let cell = self.collectionView.cellForItem(at: indexPath) as? VT_PinDetailCollectionViewCell {
+                        cell.flickrImageView.image = image
+                        photo.image = data
+                        do {
+                            try CoreDataStack.sharedInstance.saveContext()
+                        }
+                        catch {
+                            print("error saving")
+                        }
                     }
-                    catch {
-                        print("error saving")
-                    }
-
                 }
             }
         }
@@ -58,11 +57,16 @@ extension VT_PinDetailViewController: UICollectionViewDelegate, UICollectionView
         // Configure the cell
         cell.backgroundColor = UIColor.flatGray
         
+        let placeholderIcon = FAKFontAwesome.fileImageOIcon(withSize: 30)
+        placeholderIcon?.addAttribute(NSAttributedStringKey.foregroundColor.rawValue, value: UIColor.flatWhite)
+        let placeholderIconImage = placeholderIcon?.image(with: CGSize(width: cell.flickrImageView.frame.size.width, height: cell.flickrImageView.frame.size.height))
+        
+        
         let photo = photos[indexPath.row]
                 
         if photo.image == nil {
             cell.flickrImageView.backgroundColor = UIColor.flatGray
-            cell.flickrImageView.image = nil
+            cell.flickrImageView.image = placeholderIconImage
             guard let imageUrlString = photo.url else {
                 print("Cannot find keys - \(Constants.FlickrResponseKeys.MediumURL) in \(photo)")
                 return cell
@@ -76,19 +80,6 @@ extension VT_PinDetailViewController: UICollectionViewDelegate, UICollectionView
         return cell
     }
     
-    
-    
-    // MARK: UICollectionViewDelegate
-    
-    /*
-     // Uncomment this method to specify if the specified item should be highlighted during tracking
-     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-     return true
-     }
-     */
-    
-    
-     // Uncomment this method to specify if the specified item should be selected
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         return true
      }
@@ -113,23 +104,7 @@ extension VT_PinDetailViewController: UICollectionViewDelegate, UICollectionView
         else {
             userActionButton.setTitle("Remove Selected Pictures", for: .normal)
         }
-        
-//        if result == nil {
-//            selectedPhotos.append(photo)
-//            cell.alpha = 0.5
-//        }
-//        else {
-//            let index = selectedPhotos.index(of: photo)
-//            selectedPhotos.remove(at: index!)
-//            cell.alpha = 1
-//        }
-        
-//        if cell.alpha == 0.5 {
-//            cell.alpha = 1
-//        }
-//        else {
-//            cell.alpha = 0.5
-//        }
+
     }
 }
 

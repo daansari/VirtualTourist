@@ -74,6 +74,7 @@ extension VT_PinDetailViewController {
                     let photo = object as! Photo
                     photos.append(photo)
                 }
+                hud?.hide(animated: true)
             }
             else {
                 getFreshPhotos()
@@ -86,7 +87,6 @@ extension VT_PinDetailViewController {
     
     func getFreshPhotos() {
         deleteExistingPhotosFor(pin: selectedPin!)
-        self.collectionView.reloadData()
         photos = []
         
         let randomPage = Int(arc4random_uniform(UInt32(FlickrManager.sharedInstance.pages)))
@@ -107,6 +107,13 @@ extension VT_PinDetailViewController {
             DispatchQueue.main.async {
                 self.photos = photosArray
                 self.collectionView.reloadData()
+                if error != nil {
+                    self.hud?.label.text = error
+                    self.hud?.hide(animated: true, afterDelay: 1)
+                }
+                else {
+                    self.hud?.hide(animated: true)
+                }
             }
         }
     }

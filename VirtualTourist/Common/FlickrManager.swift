@@ -98,11 +98,9 @@ class FlickrManager {
                 print("\nphotosFromFlickr - \(self.photosFromFlickr)")
                 
                 for photo in self.photosFromFlickr {
-//                    DispatchQueue.main.async {
-                        let savedPhoto = Photo(photo: photo, context: CoreDataStack.sharedInstance.context)
-                        savedPhoto.pin = pin
-                        self.photos.append(savedPhoto)
-//                    }
+                    let savedPhoto = Photo(photo: photo, context: CoreDataStack.sharedInstance.context)
+                    savedPhoto.pin = pin
+                    self.photos.append(savedPhoto)
                 }
                 
                 
