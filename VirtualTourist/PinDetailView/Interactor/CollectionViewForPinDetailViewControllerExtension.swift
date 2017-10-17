@@ -12,6 +12,7 @@ import UIKit
 import FontAwesomeKit
 import ChameleonFramework
 import SDWebImage
+import MBProgressHUD
 
 private let reuseIdentifier = "PinDetail"
 
@@ -27,11 +28,17 @@ extension VT_PinDetailViewController: UICollectionViewDelegate, UICollectionView
         return photos.count
     }
     
+    func setupDownloadProgressHUDFor(hud: MBProgressHUD) {
+        hud.animationType = .zoom
+        hud.mode = .annularDeterminate
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! VT_PinDetailCollectionViewCell
         
         // Configure the cell
         cell.backgroundColor = UIColor.flatGray
+        setupDownloadProgressHUDFor(hud: cell.downloadProgressHUD)
         
         let placeholderIcon = FAKFontAwesome.fileImageOIcon(withSize: 30)
         placeholderIcon?.addAttribute(NSAttributedStringKey.foregroundColor.rawValue, value: UIColor.flatWhite)
@@ -42,6 +49,9 @@ extension VT_PinDetailViewController: UICollectionViewDelegate, UICollectionView
                 
         if photo.image == nil {
             cell.flickrImageView.backgroundColor = UIColor.flatGray
+            cell.downloadProgressHUD.isHidden = false
+            cell.downloadProgressHUD.show(animated: true)
+            
             guard let imageUrlString = photo.url else {
                 print("Cannot find keys - \(Constants.FlickrResponseKeys.MediumURL) in \(photo)")
                 return cell
@@ -49,8 +59,12 @@ extension VT_PinDetailViewController: UICollectionViewDelegate, UICollectionView
             
             let url = URL(string: imageUrlString)
             cell.flickrImageView.sd_setImage(with:  url, placeholderImage: placeholderIconImage, options: SDWebImageOptions.refreshCached, progress: { (receivedSize, expectedSize, targetURL) in
-                
+                print("\(receivedSize) \(expectedSize)")
+                DispatchQueue.main.async {
+                    cell.downloadProgressHUD.progress = Float(receivedSize / expectedSize)
+                }
             }, completed: { (image, error, cacheType, url) in
+                cell.downloadProgressHUD.hide(animated: true)
                 let data = UIImageJPEGRepresentation(image!, 1) as NSData?
                 photo.image = data
                 do {
@@ -63,6 +77,7 @@ extension VT_PinDetailViewController: UICollectionViewDelegate, UICollectionView
 //            downloadImage(url: imageUrlString, photo: photo, indexPath: indexPath)
         }
         else {
+            cell.downloadProgressHUD.isHidden = true
             cell.flickrImageView.image = UIImage(data: photo.image! as Data)
         }
         

@@ -8,6 +8,10 @@
 
 import UIKit
 
+import MBProgressHUD
+
 class VT_PinDetailCollectionViewCell: UICollectionViewCell {    
     @IBOutlet weak var flickrImageView: UIImageView!
+    @IBOutlet weak var downloadProgressHUD: MBProgressHUD!
+    
 }

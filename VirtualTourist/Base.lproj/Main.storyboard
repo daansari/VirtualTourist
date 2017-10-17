@@ -107,17 +107,26 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HHB-SL-XvV">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 </imageView>
+                                                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="HKB-8z-6w6" customClass="MBProgressHUD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstItem="HKB-8z-6w6" firstAttribute="top" secondItem="PPP-Dy-Xw5" secondAttribute="top" id="1rc-bL-tpy"/>
                                             <constraint firstAttribute="bottom" secondItem="HHB-SL-XvV" secondAttribute="bottom" id="ESr-B5-mdt"/>
+                                            <constraint firstAttribute="bottom" secondItem="HKB-8z-6w6" secondAttribute="bottom" id="OqR-b5-S6M"/>
                                             <constraint firstAttribute="trailing" secondItem="HHB-SL-XvV" secondAttribute="trailing" id="QHq-ZE-uMB"/>
+                                            <constraint firstItem="HKB-8z-6w6" firstAttribute="leading" secondItem="PPP-Dy-Xw5" secondAttribute="leading" id="cN0-Za-ecg"/>
                                             <constraint firstItem="HHB-SL-XvV" firstAttribute="leading" secondItem="PPP-Dy-Xw5" secondAttribute="leading" id="ecF-59-pZK"/>
                                             <constraint firstItem="HHB-SL-XvV" firstAttribute="top" secondItem="PPP-Dy-Xw5" secondAttribute="top" id="weK-Mr-YDw"/>
+                                            <constraint firstAttribute="trailing" secondItem="HKB-8z-6w6" secondAttribute="trailing" id="wui-Vh-ZEf"/>
                                         </constraints>
                                         <size key="customSize" width="100" height="100"/>
                                         <connections>
+                                            <outlet property="downloadProgressHUD" destination="HKB-8z-6w6" id="E6Z-Ed-raL"/>
                                             <outlet property="flickrImageView" destination="HHB-SL-XvV" id="Sck-pf-M95"/>
                                         </connections>
                                     </collectionViewCell>
