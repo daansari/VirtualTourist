@@ -19,8 +19,11 @@
 		D0697E171F94E8EC004B6250 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0697E151F94E8EC004B6250 /* Model.xcdatamodeld */; };
 		D0697E1A1F94EBFD004B6250 /* VT_Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0697E191F94EBFD004B6250 /* VT_Constants.swift */; };
 		D0697E241F94ED86004B6250 /* VT_MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0697E231F94ED86004B6250 /* VT_MapViewController.swift */; };
-		D0697E261F94EDAC004B6250 /* VT_CoreDataCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0697E251F94EDAC004B6250 /* VT_CoreDataCollectionViewController.swift */; };
 		D0697E281F94EDF0004B6250 /* VT_PinDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0697E271F94EDF0004B6250 /* VT_PinDetailViewController.swift */; };
+		D079D7461F95F33B0088DAB2 /* SetupUIForPinDetailViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D079D7451F95F33B0088DAB2 /* SetupUIForPinDetailViewControllerExtension.swift */; };
+		D079D7481F95F3420088DAB2 /* DataManagerForPinDetailViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D079D7471F95F3420088DAB2 /* DataManagerForPinDetailViewControllerExtension.swift */; };
+		D079D74C1F95F4B00088DAB2 /* VT_PinDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D079D74B1F95F4B00088DAB2 /* VT_PinDetailCollectionViewCell.swift */; };
+		D079D74E1F95F5960088DAB2 /* CollectionViewForPinDetailViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D079D74D1F95F5960088DAB2 /* CollectionViewForPinDetailViewControllerExtension.swift */; };
 		D0A38FD71F94FB1800410377 /* SetupUIForMapViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A38FD61F94FB1800410377 /* SetupUIForMapViewControllerExtension.swift */; };
 		D0A38FD91F94FB2000410377 /* DataManagerForMapViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A38FD81F94FB2000410377 /* DataManagerForMapViewControllerExtension.swift */; };
 		D0D21B1C1F94F0CB0025D5D3 /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D21B181F94F0CB0025D5D3 /* Photo+CoreDataClass.swift */; };
@@ -76,8 +79,11 @@
 		D0697E161F94E8EC004B6250 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D0697E191F94EBFD004B6250 /* VT_Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VT_Constants.swift; sourceTree = "<group>"; };
 		D0697E231F94ED86004B6250 /* VT_MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VT_MapViewController.swift; sourceTree = "<group>"; };
-		D0697E251F94EDAC004B6250 /* VT_CoreDataCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VT_CoreDataCollectionViewController.swift; sourceTree = "<group>"; };
 		D0697E271F94EDF0004B6250 /* VT_PinDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VT_PinDetailViewController.swift; sourceTree = "<group>"; };
+		D079D7451F95F33B0088DAB2 /* SetupUIForPinDetailViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupUIForPinDetailViewControllerExtension.swift; sourceTree = "<group>"; };
+		D079D7471F95F3420088DAB2 /* DataManagerForPinDetailViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerForPinDetailViewControllerExtension.swift; sourceTree = "<group>"; };
+		D079D74B1F95F4B00088DAB2 /* VT_PinDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VT_PinDetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		D079D74D1F95F5960088DAB2 /* CollectionViewForPinDetailViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewForPinDetailViewControllerExtension.swift; sourceTree = "<group>"; };
 		D0A38FD61F94FB1800410377 /* SetupUIForMapViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupUIForMapViewControllerExtension.swift; sourceTree = "<group>"; };
 		D0A38FD81F94FB2000410377 /* DataManagerForMapViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerForMapViewControllerExtension.swift; sourceTree = "<group>"; };
 		D0D21B181F94F0CB0025D5D3 /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -257,6 +263,7 @@
 		D0697E201F94ED3D004B6250 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D079D74B1F95F4B00088DAB2 /* VT_PinDetailCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -264,6 +271,9 @@
 		D0697E211F94ED41004B6250 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				D079D7451F95F33B0088DAB2 /* SetupUIForPinDetailViewControllerExtension.swift */,
+				D079D7471F95F3420088DAB2 /* DataManagerForPinDetailViewControllerExtension.swift */,
+				D079D74D1F95F5960088DAB2 /* CollectionViewForPinDetailViewControllerExtension.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -271,7 +281,6 @@
 		D0697E221F94ED45004B6250 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				D0697E251F94EDAC004B6250 /* VT_CoreDataCollectionViewController.swift */,
 				D0697E271F94EDF0004B6250 /* VT_PinDetailViewController.swift */,
 			);
 			path = Presenter;
@@ -569,6 +578,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-VirtualTourist/Pods-VirtualTourist-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/FontAwesomeKit/FontAwesomeKit.framework",
 				"${BUILT_PRODUCTS_DIR}/HexColors/HexColors.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
@@ -577,6 +588,8 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesomeKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HexColors.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
@@ -596,20 +609,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0697E131F94E839004B6250 /* CoreDataStack.swift in Sources */,
+				D079D7481F95F3420088DAB2 /* DataManagerForPinDetailViewControllerExtension.swift in Sources */,
 				D0A38FD91F94FB2000410377 /* DataManagerForMapViewControllerExtension.swift in Sources */,
 				D0D21B1F1F94F0CB0025D5D3 /* Pin+CoreDataProperties.swift in Sources */,
 				D0697DE71F94E81E004B6250 /* ViewController.swift in Sources */,
 				D0A38FD71F94FB1800410377 /* SetupUIForMapViewControllerExtension.swift in Sources */,
+				D079D74E1F95F5960088DAB2 /* CollectionViewForPinDetailViewControllerExtension.swift in Sources */,
 				D0D21B1E1F94F0CB0025D5D3 /* Pin+CoreDataClass.swift in Sources */,
+				D079D7461F95F33B0088DAB2 /* SetupUIForPinDetailViewControllerExtension.swift in Sources */,
 				D0697E281F94EDF0004B6250 /* VT_PinDetailViewController.swift in Sources */,
 				D0697DE51F94E81E004B6250 /* AppDelegate.swift in Sources */,
-				D0697E261F94EDAC004B6250 /* VT_CoreDataCollectionViewController.swift in Sources */,
 				D0697E1A1F94EBFD004B6250 /* VT_Constants.swift in Sources */,
 				D0D21B1C1F94F0CB0025D5D3 /* Photo+CoreDataClass.swift in Sources */,
 				D0697E171F94E8EC004B6250 /* Model.xcdatamodeld in Sources */,
 				D0D21B1D1F94F0CB0025D5D3 /* Photo+CoreDataProperties.swift in Sources */,
 				D0697E241F94ED86004B6250 /* VT_MapViewController.swift in Sources */,
 				D0D21B241F94F4170025D5D3 /* LocationManager.swift in Sources */,
+				D079D74C1F95F4B00088DAB2 /* VT_PinDetailCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -138,6 +138,15 @@ extension VT_MapViewController: MKMapViewDelegate {
         }
         else {
             // Open Pin Detail View
+            let pin = getPinWith(annotation: view.annotation!)
+            
+            let navigationController = self.storyboard!.instantiateViewController(withIdentifier: "PinDetailNavController") as! UINavigationController
+            
+            let pinDetailViewController = navigationController.viewControllers.first as! VT_PinDetailViewController
+            pinDetailViewController.selectedPin = pin
+        
+            self.navigationController?.pushViewController(pinDetailViewController, animated: true)
+//            self.present(navigationController, animated: true, completion: nil)
         }
     }
 }

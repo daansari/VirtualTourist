@@ -29,15 +29,16 @@ extension VT_MapViewController {
     
     func getPinWith(annotation: MKAnnotation) -> Pin? {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Pin")
-        let predicate = NSPredicate(format: "latitude = %@ AND longitude = %@", annotation.coordinate.latitude, annotation.coordinate.longitude)
+        let predicate = NSPredicate(format: "latitude = %@ AND longitude = %@", argumentArray: [annotation.coordinate.latitude, annotation.coordinate.longitude])
         fetchRequest.predicate = predicate
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "latitude", ascending: true)]
         
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.sharedInstance.context, sectionNameKeyPath: nil, cacheName: nil)
         
         do {
             try fetchedResultsController.performFetch()
             if (fetchedResultsController.fetchedObjects?.count)! > 0 {
-                return fetchedResultsController.fetchedObjects?.first as! Pin                
+                return fetchedResultsController.fetchedObjects?.first as? Pin                
             } else {
                 return nil
             }

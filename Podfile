@@ -6,9 +6,12 @@ target 'VirtualTourist' do
   use_frameworks!
 
   # Pods for VirtualTourist
-pod 'TSMessages', :git => 'https://github.com/KrauseFx/TSMessages.git'
-pod 'MBProgressHUD', '~> 1.0.0'
-pod 'XCGLogger', '~> 5.0.1'
+    pod 'TSMessages', :git => 'https://github.com/KrauseFx/TSMessages.git'
+    pod 'MBProgressHUD', '~> 1.0.0'
+    pod 'XCGLogger', '~> 5.0.1'
+    pod 'FontAwesomeKit/IonIcons'
+    pod 'FontAwesomeKit/FontAwesome'
+    pod 'ChameleonFramework', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 
   target 'VirtualTouristTests' do
     inherit! :search_paths
