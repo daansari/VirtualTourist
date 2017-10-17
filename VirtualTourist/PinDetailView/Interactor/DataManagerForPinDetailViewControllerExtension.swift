@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import CoreData
 
+import SDWebImage
+
 extension VT_PinDetailViewController {
     
     func getExistingPhotosFor(pin: Pin) -> [NSFetchRequestResult]? {
@@ -86,10 +88,22 @@ extension VT_PinDetailViewController {
     }
     
     func getFreshPhotos() {
+        SDWebImageManager.shared().imageCache?.clearMemory()
+    
         deleteExistingPhotosFor(pin: selectedPin!)
         photos = []
         
-        let randomPage = Int(arc4random_uniform(UInt32(FlickrManager.sharedInstance.pages)))
+        var randomPage = Int(arc4random_uniform(UInt32(FlickrManager.sharedInstance.pages)))
+        
+        if randomPage == 0 {
+            randomPage = 1
+        }
+        
+        var perPageValue = Int(Constants.FlickrParameterValues.PerPage)! / randomPage
+        
+        if perPageValue > 50 {
+            perPageValue = 50
+        }
         
         let methodParameters: [String: AnyObject] = [
             Constants.FlickrParameterKeys.Method: Constants.FlickrParameterValues.SearchMethod as AnyObject,
@@ -100,7 +114,7 @@ extension VT_PinDetailViewController {
             Constants.FlickrParameterKeys.Format: Constants.FlickrParameterValues.ResponseFormat as AnyObject,
             Constants.FlickrParameterKeys.NoJSONCallback: Constants.FlickrParameterValues.DisableJSONCallback as AnyObject,
             Constants.FlickrParameterKeys.Page: randomPage as AnyObject,
-            Constants.FlickrParameterKeys.PerPage: Constants.FlickrParameterValues.PerPage as AnyObject
+            Constants.FlickrParameterKeys.PerPage: String(perPageValue) as AnyObject
         ]
                 
         FlickrManager.sharedInstance.getImagesFromFlickrBySearch(pin: selectedPin!, methodParameters, with: randomPage) { (success, error, photosArray) in

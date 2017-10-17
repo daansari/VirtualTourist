@@ -21,17 +21,8 @@ class FlickrManager {
     func getImagesFromFlickrBySearch(pin: Pin, _ methodParameters: [String: AnyObject], with pageNumber: Int, onCompletion: @escaping FlickrManagerServiceResponseForPhotoFetch) {        
         photosFromFlickr = []
         photos = []
-        
-        if randomPage == pageNumber {
-            randomPage = Int(arc4random_uniform(UInt32(self.pages)))
-        }
-        else {
-            randomPage = pageNumber
-        }
-        
+    
         var methodParameters = methodParameters
-//        methodParameters[Constants.FlickrParameterKeys.Page] = randomPage as AnyObject
-        
         let url = flickrURLFromParameters(methodParameters)
         
         print(url)
@@ -97,10 +88,12 @@ class FlickrManager {
                 
                 print("\nphotosFromFlickr - \(self.photosFromFlickr)")
                 
-                for photo in self.photosFromFlickr {
-                    let savedPhoto = Photo(photo: photo, context: CoreDataStack.sharedInstance.context)
-                    savedPhoto.pin = pin
-                    self.photos.append(savedPhoto)
+                DispatchQueue.main.async {
+                    for photo in self.photosFromFlickr {
+                        let savedPhoto = Photo(photo: photo, context: CoreDataStack.sharedInstance.context)
+                        savedPhoto.pin = pin
+                        self.photos.append(savedPhoto)
+                    }
                 }
                 
                 
@@ -110,13 +103,15 @@ class FlickrManager {
                 return
             }
             
-            do {
-                try CoreDataStack.sharedInstance.saveContext()
+            DispatchQueue.main.async {
+                do {
+                    try CoreDataStack.sharedInstance.saveContext()
+                }
+                catch {
+                    print("error saving")
+                }
+                onCompletion(true, nil, self.photos)
             }
-            catch {
-                print("error saving")
-            }
-            onCompletion(true, nil, self.photos)
         }
         
         task.resume()

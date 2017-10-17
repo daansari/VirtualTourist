@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VirtualTourist/PinDetailView/Interactor/DataManagerForPinDetailViewControllerExtension.swift"
-            timestampString = "529938671.644084"
+            timestampString = "529945240.392014"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
             landmarkName = "getExistingPhotosFor(pin:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -89,28 +89,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VirtualTourist/Common/FlickrManager.swift"
-            timestampString = "529941118.41814"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
-            landmarkName = "getImagesFromFlickrBySearch(pin:_:with:onCompletion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "VirtualTourist/PinDetailView/Interactor/DataManagerForPinDetailViewControllerExtension.swift"
-            timestampString = "529938671.644262"
+            timestampString = "529945240.393951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "deleteExistingPhotosFor(pin:)"
             landmarkType = "7">
          </BreakpointContent>

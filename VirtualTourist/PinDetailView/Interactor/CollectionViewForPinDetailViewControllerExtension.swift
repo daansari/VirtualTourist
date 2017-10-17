@@ -49,6 +49,7 @@ extension VT_PinDetailViewController: UICollectionViewDelegate, UICollectionView
                 
         if photo.image == nil {
             cell.flickrImageView.backgroundColor = UIColor.flatGray
+            cell.flickrImageView.image = placeholderIconImage
             cell.downloadProgressHUD.isHidden = false
             cell.downloadProgressHUD.show(animated: true)
             
@@ -58,7 +59,7 @@ extension VT_PinDetailViewController: UICollectionViewDelegate, UICollectionView
             }
             
             let url = URL(string: imageUrlString)
-            cell.flickrImageView.sd_setImage(with:  url, placeholderImage: placeholderIconImage, options: SDWebImageOptions.refreshCached, progress: { (receivedSize, expectedSize, targetURL) in
+            cell.flickrImageView.sd_setImage(with:  url, placeholderImage: placeholderIconImage, options: SDWebImageOptions.cacheMemoryOnly, progress: { (receivedSize, expectedSize, targetURL) in
                 print("\(receivedSize) \(expectedSize)")
                 DispatchQueue.main.async {
                     cell.downloadProgressHUD.progress = Float(receivedSize / expectedSize)
