@@ -47,8 +47,6 @@ extension VT_MapViewController {
             print("fc error")
             return nil
         }
-
-        return nil
     }
     
     func savePin(annotation: MKAnnotation) {

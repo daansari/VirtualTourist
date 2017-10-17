@@ -58,19 +58,23 @@ extension VT_MapViewController {
     }
     
     @IBAction func didTapEditButton(_ sender: Any) {
-        if isEditMode == false {
-            isEditMode = true
-            showHideDeletePinButton(show: isEditMode)
-        }
-        else {
-            isEditMode = false
-            showHideDeletePinButton(show: isEditMode)
-            deletePins(annotations: pinsToDelete)
-        }
+        let doneBarButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(VT_MapViewController.didTapDonePinsButton(_:)))
+        
+        self.navigationItem.rightBarButtonItem = doneBarButton
+        isEditMode = true
+        showHideDeletePinButton(show: isEditMode)
     }
     
     
-    @IBAction func didTapDeletePinsButton(_ sender: Any) {
+    @objc func didTapDonePinsButton(_ sender: Any) {
+        let editBarButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(VT_MapViewController.didTapEditButton(_:)))
+        
+        self.navigationItem.rightBarButtonItem = editBarButton
+        
+        isEditMode = false
+        self.navigationItem.rightBarButtonItem?.title = "Edit"
+        showHideDeletePinButton(show: isEditMode)
+        deletePins(annotations: pinsToDelete)
     }
 }
 

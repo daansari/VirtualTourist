@@ -14,7 +14,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Map View Controller-->
+        <!--Virtual Tourist-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="MapViewController" id="BYZ-38-t0r" customClass="VT_MapViewController" customModule="VirtualTourist" customModuleProvider="target" sceneMemberID="viewController">
@@ -55,7 +55,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="yFr-KM-U6N">
+                    <navigationItem key="navigationItem" title="Virtual Tourist" id="yFr-KM-U6N">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="f1o-r5-rjG">
                             <connections>
                                 <action selector="didTapEditButton:" destination="BYZ-38-t0r" id="R6m-dy-oB4"/>
@@ -73,7 +73,7 @@
             </objects>
             <point key="canvasLocation" x="476" y="132.68365817091455"/>
         </scene>
-        <!--Pin Detail View Controller-->
+        <!--Detail-->
         <scene sceneID="15u-3F-kyy">
             <objects>
                 <viewController storyboardIdentifier="PinDetailViewController" id="o5N-Oe-GfO" customClass="VT_PinDetailViewController" customModule="VirtualTourist" customModuleProvider="target" sceneMemberID="viewController">
@@ -165,7 +165,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="e4p-YS-hJ9"/>
                     </view>
-                    <navigationItem key="navigationItem" id="yuF-Y5-cN3"/>
+                    <navigationItem key="navigationItem" title="Detail" id="yuF-Y5-cN3"/>
                     <connections>
                         <outlet property="collectionView" destination="d7k-KV-EK7" id="pJJ-gH-rwh"/>
                         <outlet property="mapView" destination="rYX-dM-hOy" id="OtP-i7-Bdu"/>
