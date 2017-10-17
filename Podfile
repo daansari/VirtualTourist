@@ -12,6 +12,7 @@ target 'VirtualTourist' do
     pod 'FontAwesomeKit/IonIcons'
     pod 'FontAwesomeKit/FontAwesome'
     pod 'ChameleonFramework', :git => 'https://github.com/ViccAlexander/Chameleon.git'
+    pod 'SDWebImage', '~> 4.0'
 
   target 'VirtualTouristTests' do
     inherit! :search_paths

@@ -11,6 +11,7 @@ import UIKit
 
 import FontAwesomeKit
 import ChameleonFramework
+import SDWebImage
 
 private let reuseIdentifier = "PinDetail"
 
@@ -24,31 +25,6 @@ extension VT_PinDetailViewController: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
-    }
-    
-    func getDataFromUrl(url:String, completion: @escaping ((_ data: NSData?) -> Void)) {
-        URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
-            completion(NSData(data: data!))
-            }.resume()
-    }
-    
-    func downloadImage(url:String, photo: Photo, indexPath: IndexPath){
-        getDataFromUrl(url: url) { data in
-            DispatchQueue.main.async() {
-                if let image = UIImage(data: data! as Data){
-                    if let cell = self.collectionView.cellForItem(at: indexPath) as? VT_PinDetailCollectionViewCell {
-                        cell.flickrImageView.image = image
-                        photo.image = data
-                        do {
-                            try CoreDataStack.sharedInstance.saveContext()
-                        }
-                        catch {
-                            print("error saving")
-                        }
-                    }
-                }
-            }
-        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -66,12 +42,25 @@ extension VT_PinDetailViewController: UICollectionViewDelegate, UICollectionView
                 
         if photo.image == nil {
             cell.flickrImageView.backgroundColor = UIColor.flatGray
-            cell.flickrImageView.image = placeholderIconImage
             guard let imageUrlString = photo.url else {
                 print("Cannot find keys - \(Constants.FlickrResponseKeys.MediumURL) in \(photo)")
                 return cell
             }
-            downloadImage(url: imageUrlString, photo: photo, indexPath: indexPath)
+            
+            let url = URL(string: imageUrlString)
+            cell.flickrImageView.sd_setImage(with:  url, placeholderImage: placeholderIconImage, options: SDWebImageOptions.refreshCached, progress: { (receivedSize, expectedSize, targetURL) in
+                
+            }, completed: { (image, error, cacheType, url) in
+                let data = UIImageJPEGRepresentation(image!, 1) as NSData?
+                photo.image = data
+                do {
+                    try CoreDataStack.sharedInstance.saveContext()
+                }
+                catch {
+                    print("error saving")
+                }
+            })
+//            downloadImage(url: imageUrlString, photo: photo, indexPath: indexPath)
         }
         else {
             cell.flickrImageView.image = UIImage(data: photo.image! as Data)
