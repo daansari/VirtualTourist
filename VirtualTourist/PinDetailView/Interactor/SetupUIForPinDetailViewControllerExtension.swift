@@ -35,4 +35,17 @@ extension VT_PinDetailViewController {
         self.collectionView!.register(VT_PinDetailCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
     
+    @IBAction func didTapUserActionButton(_ sender: Any) {
+        if selectedPhotos.count == 0 {
+            getFreshPhotos()
+        }
+        else {
+            // Delete Selected Pictures
+            deleteSelectedPhotos()
+            getPhotos()
+            userActionButton.setTitle("New Collection", for: .normal)
+            collectionView.reloadData()
+        }
+    }
+    
 }

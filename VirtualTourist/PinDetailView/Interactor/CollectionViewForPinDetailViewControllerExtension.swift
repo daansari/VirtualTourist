@@ -105,6 +105,13 @@ extension VT_PinDetailViewController: UICollectionViewDelegate, UICollectionView
             cell.alpha = 0.5
         }
         
+        if selectedPhotos.count == 0 {
+            userActionButton.setTitle("New Collection", for: .normal)
+        }
+        else {
+            userActionButton.setTitle("Remove Selected Pictures", for: .normal)
+        }
+        
 //        if result == nil {
 //            selectedPhotos.append(photo)
 //            cell.alpha = 0.5

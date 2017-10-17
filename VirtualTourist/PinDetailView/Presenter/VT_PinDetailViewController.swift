@@ -14,6 +14,8 @@ class VT_PinDetailViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var userActionButton: UIButton!
+    
     var selectedPin: Pin?
     var testArray = ["One", "Two", "Three"]
     var selectedPhotos: [Photo] = []
@@ -44,7 +46,7 @@ class VT_PinDetailViewController: UIViewController {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
     }
-    */
+    */    
 
 }
 

@@ -88,7 +88,7 @@
                                 </constraints>
                             </mapView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="d7k-KV-EK7">
-                                <rect key="frame" x="0.0" y="100" width="375" height="503"/>
+                                <rect key="frame" x="0.0" y="100" width="375" height="453"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ohr-th-QfQ">
                                     <size key="itemSize" width="50" height="50"/>
@@ -127,14 +127,30 @@
                                     <outlet property="delegate" destination="o5N-Oe-GfO" id="hTP-wK-hSz"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="me9-P5-ugM">
+                                <rect key="frame" x="0.0" y="553" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.19376453757286072" green="0.50850099325180054" blue="0.85232251882553101" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="hxZ-UP-bq6"/>
+                                </constraints>
+                                <state key="normal" title="New Collection">
+                                    <color key="titleColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapUserActionButton:" destination="o5N-Oe-GfO" eventType="touchUpInside" id="EaS-CT-BDv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="rYX-dM-hOy" firstAttribute="trailing" secondItem="e4p-YS-hJ9" secondAttribute="trailing" id="71N-re-VCt"/>
-                            <constraint firstItem="d7k-KV-EK7" firstAttribute="bottom" secondItem="e4p-YS-hJ9" secondAttribute="bottom" id="8RO-jm-CXH"/>
                             <constraint firstItem="d7k-KV-EK7" firstAttribute="top" secondItem="rYX-dM-hOy" secondAttribute="bottom" id="DLZ-vR-RKo"/>
                             <constraint firstItem="d7k-KV-EK7" firstAttribute="trailing" secondItem="e4p-YS-hJ9" secondAttribute="trailing" id="GCf-NF-2wv"/>
+                            <constraint firstAttribute="bottom" secondItem="me9-P5-ugM" secondAttribute="bottom" id="Gdv-My-xwh"/>
                             <constraint firstItem="rYX-dM-hOy" firstAttribute="top" secondItem="e4p-YS-hJ9" secondAttribute="top" id="His-Pa-VZX"/>
+                            <constraint firstItem="e4p-YS-hJ9" firstAttribute="trailing" secondItem="me9-P5-ugM" secondAttribute="trailing" id="J3s-ve-wGg"/>
+                            <constraint firstItem="me9-P5-ugM" firstAttribute="top" secondItem="d7k-KV-EK7" secondAttribute="bottom" id="QCJ-mn-fq2"/>
+                            <constraint firstItem="me9-P5-ugM" firstAttribute="leading" secondItem="e4p-YS-hJ9" secondAttribute="leading" id="dvl-qT-ljx"/>
                             <constraint firstItem="d7k-KV-EK7" firstAttribute="leading" secondItem="e4p-YS-hJ9" secondAttribute="leading" id="kjQ-58-WSl"/>
                             <constraint firstItem="rYX-dM-hOy" firstAttribute="leading" secondItem="e4p-YS-hJ9" secondAttribute="leading" id="npn-ks-568"/>
                         </constraints>
@@ -144,6 +160,7 @@
                     <connections>
                         <outlet property="collectionView" destination="d7k-KV-EK7" id="pJJ-gH-rwh"/>
                         <outlet property="mapView" destination="rYX-dM-hOy" id="OtP-i7-Bdu"/>
+                        <outlet property="userActionButton" destination="me9-P5-ugM" id="OZM-a4-kwm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N0y-qA-Re1" userLabel="First Responder" sceneMemberID="firstResponder"/>

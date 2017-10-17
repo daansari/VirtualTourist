@@ -44,7 +44,23 @@ extension VT_PinDetailViewController {
         }
     }
     
+    func deleteSelectedPhotos() {
+        for photo in selectedPhotos {
+            deleteExistingPhoto(photo: photo)
+        }
+    }
+    
+    func deleteExistingPhoto(photo: Photo) {
+        CoreDataStack.sharedInstance.context.delete(photo)
+        do {
+            try CoreDataStack.sharedInstance.context.save()
+        } catch {
+            print("error")
+        }
+    }
+    
     func getPhotos() {
+        photos = []
         if let existingPhotos = getExistingPhotosFor(pin: selectedPin!) {
             if existingPhotos.count > 0 {
                 for object in existingPhotos {
@@ -63,6 +79,7 @@ extension VT_PinDetailViewController {
     
     func getFreshPhotos() {
         deleteExistingPhotosFor(pin: selectedPin!)
+        photos = []
         
         let randomPage = Int(arc4random_uniform(UInt32(FlickrManager.sharedInstance.pages)))
         
