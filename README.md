@@ -1,3 +1,4 @@
-Virtual Tourist - iOS App
-MapKit, Core Data, Flickr Integration
-Udacity iOS ND
+# Virtual Tourist - iOS App
+## Udacity iOS ND
+###### MapKit, Core Data, Flickr Integration
+
