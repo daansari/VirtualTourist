@@ -21,6 +21,8 @@ class FlickrManager {
     func getImagesFromFlickrBySearch(pin: Pin, _ methodParameters: [String: AnyObject], with pageNumber: Int, onCompletion: @escaping FlickrManagerServiceResponseForPhotoFetch) {        
         photosFromFlickr = []
         photos = []
+        
+        randomPage = pageNumber
     
         var methodParameters = methodParameters
         let url = flickrURLFromParameters(methodParameters)
